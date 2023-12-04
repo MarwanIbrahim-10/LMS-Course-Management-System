@@ -1,0 +1,6 @@
+CourseCode,CourseName,InstructorEmpID,DaysOfWeek,StartTime,EndTime,Description
+PHY201,Advanced Physics,PM1234,Tue,Thu,09:00,10:30,Advanced physics topics.
+COMP101,Computer Science 1,PM1234,Mon,Wed,11:00,12:30,Introduction to programming.
+MATH201,Advanced Calculus,PM1234,Tue,Thu,14:00,15:30,Advanced calculus topics.
+ENG101,English Composition,PM1234,Mon,Wed,16:00,17:30,Writing and composition.
+CHEM201,Advanced Chemistry,PM2233,Mon,Wed,13:00,14:30,Advanced chemistry topics.

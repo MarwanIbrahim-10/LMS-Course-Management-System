@@ -1,97 +1,232 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/u_SW0K9w)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11704074&assignment_repo_type=AssignmentRepo)
-# Course Project
+# Learning Management System (LMS) Report
+1. Introduction
+The Learning Management System (LMS) is designed to streamline the process of managing students, instructors, and courses in an educational setting. With functionalities ranging from data import/export, management of entities, to schedule handling, the LMS aims to provide a comprehensive solution for academic institutions.
 
-## Aim
-The aim of the course project is to give you an opportunity to synthesize topics you have learned during the Object-oriented Programming Course into a single system embedded in a real-world engineering challenge. You should have already selected a topic for your project. There are three deliverables: (1) functioning program, (2) report, and (3) self-assessment. You should study the provided evaluation scheme to understand how your work will be assessed.
+2. System Overview
+The LMS system comprises of three primary entities:
 
-## Assessment
-1.	__Program (15 points)__: your program should be implemented to solve in a simplistic way your chosen project topic. It should not need to be overly complicated, but it should demonstrate optimizations for speed and memory, as well as object-oriented programming paradigms. The code should be readable, with a clear output to the console.
-    - __Upload your code files directly to the _code/_ directory in this repository. The code should run straight from Github codespaces.__
+'Data': A foundational class.
+'Student': Represents the learners.
+'Instructor': Symbolizes the teaching staff.
+'Course': Each subject or topic offered is an object of this class.
+'LMS': The central hub coordinating among all entities.
 
-2.	__Report (18 points)__: your report should provide an educated reader with enough information to understand the challenge your program attempts to solve, how your program is structured, and the reason behind the decisions you made. 
-    - You should structure your report with headings/sub-headings that include an “introduction”, your “approach”, and your “solution”. 
-    - You should also include a diagram (high-level flowchart or UML diagram) that defines how your program is structured (e.g. using [draw.io](draw.io)). 
-    - You should also highlight implementation of optimizations and object-oriented paradigms through the use of code snippets (do no copy and paste large sections of code). 
-    - A length of 3 to 6 pages in single-spaced 12pt font is reasonable for a report. Please do not plagiarize.
-    - __Upload your report in Markdown format to this repository in the `Report.md` file .__
+3. System Components
 
-3.	__Self-assessment (2 points)__: you should study and submit the evaluation scheme below along with your report. It defines how you will be evaluated and what constitutes excellent work.
+Following the shown UML Diagram, the structural system of all classes and their relationship can be illustrated:
 
-## Self-assessment (2 points)
-To ensure you understand the requirements of the project, a checklist in (a) provides a summary of what you should understand and submit. 
+![LMS_UMl.drawio](images\LMS_UML.drawio.png)
 
-### (a) Check-list
-Check the list below as they are completed using the [x] symbol.
-- [x] Read this document.
-- [x] Understand the evaluation scheme.
-- [x] Submit code files into this repo under the __code/__ directory.
-- [x] Ensure code files can be executed in a Github codespace environment.
-- [x] Provide a screenshot of your code's output.
-- [x] Submit your report in `Report.md`.
-- [x] Complete the self-assessment according to the defined evaluation scheme.
-  - [x] Complete the self-assessment table (b) below.
-  - [x] Enumerate location of implemented concepts in section (c) below.
+3.1 Student
+Attributes:
 
-I declare that I have read and completed the above checked item in the list: [Insert name], [Insert date]
+First Name
+Last Name
+Year of Study
+NetID
+Enrolled Courses
+Methods:
 
-### (b) Complete this table:
-The table below lists the elements in which you project will be assessessed. Please insert a self-assessment score for each element you implemented in the project in the table section (b).
+printStudentInfo(): Displays student's information.
+isEnrolledIn(courseCode): Checks if student is enrolled in a particular course.
+enrollIn(courseCode): Enrolls student in a course.
+dropCourse(courseCode): Removes student from a course.
+getEnrolledCourses(): Returns a list of courses the student is enrolled in.
 
-|              | Points | Student's Evaluation     | Instructor's Evaluation |
-| ------------ | ------ | ------------------------ | ----------------------- |
-| __Code:__    |        |                          |                         |
-| Readibility  | 3      | 3[Insert self-assessment] |                         |
-| Optimization | 3      | 3[Insert self-assessment] |                         |
-| OOP Concepts | 3      | 3[Insert self-assessment] |                         |
-| Output       | 3      | 3[Insert self-assessment] |                         |
-| Correctness  | 3      | 3[Insert self-assessment] |                         |
-| **Report:**  |        |                          |                         |
-| Engaging     | 3      | 3[Insert self-assessment] |                         |
-| Grammar      | 3      | 3[Insert self-assessment] |                         |
-| Structure    | 3      | 3[Insert self-assessment] |                         |
-| Visual       | 3      | 3[Insert self-assessment] |                         |
-| Content      | 3      | 3[Insert self-assessment] |                         |
-| References   | 3      | 3[Insert self-assessment] |                         |
-| Total        | 33     | 33[Insert self-assessment] |                         |
+3.2 Instructor
+Attributes:
+
+First Name
+Last Name
+Employee ID
+Methods:
+
+getFirstName(): Returns the first name.
+getLastName(): Returns the last name.
+getFullName(): Returns the full name.
+getEmployeeID(): Returns the employee ID.
+
+3.3 Course
+Attributes:
+
+Course Code
+Course Name
+Instructor
+Days of the Week
+Start Time
+End Time
+Description
+Methods:
+
+DisplayCourseInfo(): Displays detailed information about the course.
+SetDescription(description): Sets a description for the course.
+
+3.4 Data (Abstract Class)
+Attributes:
+
+First Name
+Last Name
+NetID
+Methods:
+
+getID(): Abstract method to retrieve ID.
+
+3.5 LMS
+Attributes:
+
+List of Students
+List of Instructors
+List of Courses
+Methods:
+
+CRUD operations (Create, Read, Update, Delete) for students, instructors, and courses.
+Data import/export from/to CSV files.
+Schedule handling for students.
+
+4. Functionalities
+Loading and Saving Data: The LMS system loads and saves data from/to CSV files.
+Managing Students: Add, find, remove, and enroll students. Display a student's schedule.
+Managing Instructors: Add, find, and remove instructors.
+Managing Courses: Add, find, remove, and assign instructors to courses.
+
+5. Object-Oriented Paradigms
+
+[a]Classes and Objects: Structuring the System
+Classes encapsulate data for the object and methods to manipulate that data. In the LMS:
+
+[i]Data: A foundational class.
+[ii]Student: Represents the learners.
+
+```c++
+Student::Student(const std::string& fname, const std::string& lName, int sYear, const std::string& netID)
+        : studentYear(sYear) {
+        firstName = fname;
+        lastName = lName;
+        NetID = netID;
+    }
+```
+
+[iii]Instructor: Symbolizes the teaching staff.
+
+```c++
+Instructor::Instructor(const std::string& fName, const std::string& lName, const std::string& empID)
+        : firstName(fName), lastName(lName), employeeID(empID) {}
+```
+
+[iv]Course: Each subject or topic offered is an object of this class.
+
+```c++
+Course::Course(const std::string& code, const std::string& name, const Instructor& instructor,
+               const std::vector<std::string>& daysOfWeek, const std::string& startTime,
+               const std::string& endTime, const std::string& description)
+    : courseCode(code), courseName(name), courseInstructor(instructor.getEmployeeID()),
+      courseDaysOfWeek(daysOfWeek), courseStartTime(startTime), courseEndTime(endTime),
+      courseDescription(description) {}
+```
+
+[v]LMS: The central hub coordinating among all entities.
+
+```c++
+LMS::LMS() {
+    ...
+    loadStudentsFromCSV("students.csv");
+    loadInstructorsFromCSV("instructors.csv");
+    loadCoursesFromCSV("courses.csv");
+}
+```
+
+[b] Encapsulation: Ensuring Data Integrity
+The classes use private member variables to store their state and provide public methods to access and modify that state. This ensures data integrity by restricting direct access to an object's attributes.
+
+```c++
+class Instructor {
+private:
+    std::string firstName;
+    std::string lastName;
+    std::string employeeID;
+public:
+    std::string getFirstName() const;
+    ...
+};
+```
+
+[c] Inheritance: Reusing and Extending
+The power of inheritance is evident where the Student class extends the Data class, thus avoiding redundancy and ensuring a hierarchical structure.
+
+```c++
+// Override the virtual function from the Data class
+const std::string& Student::getID() const;
+```
+
+[d] Polymorphism: The method getID in the Student class is overridden, implying the existence of a virtual function in a base class.
+The LMS showcases:
+    . Function Overriding: The Student class overrides the getID method.
+
+    ```c++
+    const std::string& getID() const override {
+    return NetID;
+    }
+    ```
+
+    . Virtual Functions: The Data class uses a pure virtual function, ensuring adaptability for derived classes.
+
+[e] Association: The Course class has an association with the Instructor class, as it stores the employeeID of the Instructor that's teaching the course.
+
+```c++
+class Course {
+private:
+    std::string courseInstructor;
+    ...
+};
+```
+
+The LMS system's classes are intertwined. The Course class, for instance, associates with Instructor, indicating course instructors.
+
+6.  Incorporating Optimization Techniques
+
+[a] Data Structure Choices: Vector for Efficiency
+The use of std::vector in the LMS class for storing lists of students, instructors, and courses ensures that data is stored contiguously, which is beneficial for memory access and search operations.
+
+```c++
+std::vector<Student*> students;
+std::vector<Instructor*> instructors;
+std::vector<Course*> courses;
+```
+
+[b] Memory Management: No Leaks Allowed
+The destructor in the LMS class ensures that dynamically allocated memory (for students, instructors, and courses) is released, preventing potential memory leaks.
+
+```c++
+LMS::~LMS() {
+    for (auto student : students) delete student;
+    for (auto instructor : instructors) delete instructor;
+    for (auto course : courses) delete course;
+}
+```
+
+[c] Persistence: Storing Data for Continuity
+The LMS system persists data across sessions by interfacing with CSV files. This feature is invaluable, ensuring the longevity of data and reflecting changes across sessions.
+
+```c++
+void LMS::loadStudentsFromCSV(const std::string& filename);
+void LMS::saveStudentsToCSV(const std::string& filename);
+```
 
 
-### (c) Fill in this section:
-In addition to completing the self-assessment table, enumerate the optimization and OOP concepts you implemented and the filename / line number of your implementation. You may list this information after the table in the designated placeholder section (b).
+7. User Guide
 
-**Optimization**: enumerate the concepts implemented for optimization and their line numbers below.
+  Run the program using the following command
+    
+    ```console
 
-- *Concept #1*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #2*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #3*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #4*: [insert here], *File name / Line numbers(s)*: [insert here]
+    g++ main.cpp LMS.cpp -O2 -o LMS 
+    ./LMS
 
-**OOP Concepts**: enumerate the concepts implemented that demonstrate an OOP approach to programming, and their location in your code (line numbers) below.
-
-- *Concept #1*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #2*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #3*: [insert here], *File name / Line numbers(s)*: [insert here]
-- *Concept #4*: [insert here], *File name / Line numbers(s)*: [insert here]
-
-## Evaluation Scheme (Rubric)
-The evaluation scheme below defines how your work will be assessed.
+    ```
+  The program will process all entries from students.csv, courses.csv, and instructors.csv and build the system objects using these data.
+  In order to add/remove students and instructors from the system, follow the example in the main.cpp file to add the desired student information - due to currently not having a suitable GUI, using methods from LMS.h should be visible and understanding enough to create your own processes.
 
 
-
-|                        | 3 points                                                     | 2 points                                                     | 1 point                                                      | 0 points                                                     |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Code (15 points)**   |                                                              |                                                              |                                                              |                                                              |
-| Readibility            | The code is exceptionally well organized and very easy to follow, with extensive use of comments, functions, and files to organize code. | The code is fairly easy to read, with moderate use of comments, functions, and files to organize code. | The code is readable only by someone who knows what it is supposed to be doing. | The code is poorly organized and very difficult to read.     |
-| Optimization           | Code implements at least four coding paradigms / topics covered in the class that aid in code optimizations for speed and memory. | Code  implements a few coding paradigms / topics covered in the class that aid in  code optimizations for speed and memory. | Code implements one coding paradigms / topics covered in the class that aid in code optimizations for speed and memory. | Code  implements no coding paradigms / topics covered in the class that aid in code  optimizations for speed and memory. |
-| OOP Concepts           | Code implements at least four object-oriented coding paradigms / topics covered in the class. | Code implements a few of object-oriented coding paradigms / topics covered in the class. | Code implements a few of object-oriented coding paradigms / topics covered in the class. | Code  implements no object-oriented coding paradigms / topics covered in the class. |
-| Output                 | Code functionality prints very clearly to the console with good use of headers and newlines. | Code functionality prints to the console with fair use of headers and newlines. | Code functionality rarely prints to the console.             | Code does not print to console to demonstrate functionality. |
-| Correctness            | Code runs perfectly with no errors.                          | Code  runs with a few errors.                                | Code  runs with several errors.                              | Code  does not run at all.                                   |
-| **Report (18 points)** |                                                              |                                                              |                                                              |                                                              |
-| Engaging               | Writing was deeply engaging, with extensive use of real-word examples, suggesting deep thought in content delivery. | Writing was moderately engaging, with some reference to real-world examples. | Writing made no use of real-world examples.                  | Writing was difficult to follow and composed in a rush.      |
-| Grammar                | Grammar is perfect.                                          | Some number of grammatical errors.                           | Significant number of grammatical errors, indicating work was reviewed but not carefully. | Full  of grammatical errors, indicating work was only a first draft. |
-| Structure              | Extensive use of spacing between paragraphs, headings, sub-headings. | Moderate use of spacing between paragraphs, headings, sub-headings. | Limited use of spacing between paragraphs, headings, sub-headings. | No use  of spacing between paragraphs, headings, sub-headings. |
-| Visual                 | Excellent  use of flowchart / diagram to present logic of code system. | Fair use of flowchart / diagram to present logic of code system. | Poor  use of flowchart / diagram to present logic of code system. No clear  structure, use of color scheme, with unreadable text. | No use  of flowchart / diagram to present logic of code system. |
-| Content                | Report highlights *all* key elements of code, and presents code snippets within document to help describe system. | Report highlights *most* key elements of code, and presents code snippets within document to help describe system. | Report highlights *some* key elements of code, and *poorly* presents code snippets within document in an attempt to describe system. | Report  does not explicitly highlight key elements of code, with either no code  snippets, or inserts a dump of the whole code base with little effort. |
-| References             | Four or more references cited in bibliography and writing which may include articles, code blogs/repos, news stories, and website. | Less than four references cited.                             | Almost no references. Writing makes claims that should be supported by references. | No  references cited, and writing makes claims that should be supported by  references. |
-
+8. Conclusion
+The LMS provides a comprehensive solution for managing students, instructors, and courses in educational settings. Continuous improvements can make it an invaluable tool for educational administrators. Incorporating object-oriented programming concepts and optimization techniques, the LMS system emerges as a modern, efficient, and scalable solution. Through careful design choices and meticulous implementation, it stands ready to support educational institutions in the digital age.
 
